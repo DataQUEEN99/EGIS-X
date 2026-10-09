@@ -1,0 +1,42 @@
+[
+  {
+    "scenario_id": "SCEN-001",
+    "name": "Database Connection Pool Exhaustion",
+    "true_root_cause_service": "user-db",
+    "fault_type": "memory_leak",
+    "injection_delay_sec": 12.0,
+    "description": "User PostgreSQL DB connection pool saturated, causing latency spikes in Auth and Checkout services."
+  },
+  {
+    "scenario_id": "SCEN-002",
+    "name": "Payment Gateway 3rd-Party Timeout",
+    "true_root_cause_service": "payment-gateway",
+    "fault_type": "latency_spike",
+    "injection_delay_sec": 8.5,
+    "description": "Payment Gateway external API latency surge cascading upstream to Checkout service."
+  },
+  {
+    "scenario_id": "SCEN-003",
+    "name": "Auth Service CPU Spike Bug",
+    "true_root_cause_service": "auth-service",
+    "fault_type": "cpu_pressure",
+    "injection_delay_sec": 15.0,
+    "description": "Auth service regex parsing loop causing 99% CPU utilization."
+  },
+  {
+    "scenario_id": "SCEN-004",
+    "name": "Inventory API Deployment Regression",
+    "true_root_cause_service": "inventory-api",
+    "fault_type": "deployment_bug",
+    "injection_delay_sec": 10.0,
+    "description": "Recent deployment of v2.4.0 introduced unindexed query on Inventory database table."
+  },
+  {
+    "scenario_id": "SCEN-005",
+    "name": "Redis Cache Eviction Surge",
+    "true_root_cause_service": "redis-cache",
+    "fault_type": "error_surge",
+    "injection_delay_sec": 6.0,
+    "description": "Redis cache memory exhaustion leading to mass cache misses and database fallback thrashing."
+  }
+]
